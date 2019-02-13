@@ -1,0 +1,22 @@
+<div>
+    <h2>My Hotels</h2>
+
+
+
+
+<ul class="hotels">
+  <li *ngFor="let hotel of hotels" [class.selected]="hotel === selectedHotel" (click)="onSelect(hotel)">
+   <a href="#"><span class="badge">{{hotel.name}}</span></a>
+
+  <li *ngFor="let hotel of hotels | filter" [class.selected]="hotel === selectedHotel" (click)="onSelect(hotel)">
+    <span class="badge">{{hotel.name}}</span>
+  </li>
+</ul>
+</div>
+
+<div *ngIf="selectedHotel">
+  <h1>{{selectedHotel.name | lowercase}} Details</h1>
+  <div><p>stars: </p>{{selectedHotel.stars}}</div>
+  <div><p>price: </p>{{selectedHotel.price}}</div>
+
+</div>
